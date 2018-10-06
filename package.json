@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/clarkmcc/ppmproxy#readme",
   "dependencies": {
+    "http-proxy": "^1.17.0",
     "proxy": "^0.2.4"
   }
 }
