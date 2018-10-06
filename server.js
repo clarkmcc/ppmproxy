@@ -1,8 +1,15 @@
-var http = require('http');
-var setup = require('proxy');
+const express = require("express");
+const request = require('request');
+const app = express();
 
-var server = setup(http.createServer());
-server.listen(process.env.PORT, function () {
-  var port = server.address().port;
-  console.log('HTTP(s) proxy server listening on port %d', process.env.PORT);
+app.get('/', (req, res) => request(
+    {
+        url: req.query.url,
+        method: req.query.method
+    }
+    ).pipe(res)
+);
+
+app.listen(process.env.PORT, function() {
+    console.log('Port: ' + process.env.PORT)
 });
