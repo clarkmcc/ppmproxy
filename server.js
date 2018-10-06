@@ -1,26 +1,8 @@
 var http = require('http');
+var setup = require('proxy');
 
-http.createServer(onRequest).listen(process.env.PORT, function() {
-    console.log('Listening on port ' + process.env.PORT)
+var server = setup(http.createServer());
+server.listen(3128, function () {
+  var port = server.address().port;
+  console.log('HTTP(s) proxy server listening on port %d', port);
 });
-
-function onRequest(client_req, client_res) {
-  console.log('serve: ' + client_req.url);
-
-  var options = {
-    hostname: 'www.google.com',
-    port: 80,
-    path: client_req.url,
-    method: 'GET'
-  };
-
-  var proxy = http.request(options, function (res) {
-    res.pipe(client_res, {
-      end: true
-    });
-  });
-
-  client_req.pipe(proxy, {
-    end: true
-  });
-}
