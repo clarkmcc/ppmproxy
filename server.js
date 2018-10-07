@@ -1,15 +1,21 @@
-const express = require("express");
-const request = require('request');
-const app = express();
+const AnyProxy = require('anyproxy');
+const options = {
+  port: 8001,
+  rule: require('myRuleModule'),
+  webInterface: {
+    enable: true,
+    webPort: 8002
+  },
+  throttle: 10000,
+  forceProxyHttps: false,
+  wsIntercept: false,
+  silent: false
+};
+const proxyServer = new AnyProxy.ProxyServer(options);
 
-app.get('/', (req, res) => request(
-    {
-        url: req.query.url,
-        method: req.query.method
-    }
-    ).pipe(res)
-);
+proxyServer.on('ready', () => { /* */ });
+proxyServer.on('error', (e) => { /* */ });
+proxyServer.start();
 
-app.listen(process.env.PORT, function() {
-    console.log('Port: ' + process.env.PORT)
-});
+//when finished
+proxyServer.close();

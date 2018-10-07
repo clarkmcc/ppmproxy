@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/clarkmcc/ppmproxy/issues"
   },
-  "homepage": "https://github.com/clarkmcc/ppmproxy#readme"
+  "homepage": "https://github.com/clarkmcc/ppmproxy#readme",
+  "dependencies": {
+    "anyproxy": "^4.0.12"
+  }
 }
