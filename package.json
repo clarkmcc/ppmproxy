@@ -11,16 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/clarkmcc/ppmproxy.git"
   },
-  "author": "clarrkee",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/clarkmcc/ppmproxy/issues"
   },
-  "homepage": "https://github.com/clarkmcc/ppmproxy#readme",
-  "dependencies": {
-    "express": "^4.16.3",
-    "http-proxy": "^1.17.0",
-    "proxy": "^0.2.4",
-    "request": "^2.88.0"
-  }
+  "homepage": "https://github.com/clarkmcc/ppmproxy#readme"
 }
