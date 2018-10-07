@@ -3,7 +3,7 @@ const options = {
   port: 8001,
   webInterface: {
     enable: true,
-    webPort: 8002
+    webPort: process.env.PORT
   },
   throttle: 10000,
   forceProxyHttps: false,
